@@ -67,12 +67,12 @@ angular.module(MODULE_NAME, [])
           containerBottom = height(container) + pageYOffset(container[0].document.documentElement);
           elementBottom = offsetTop(elem) + height(elem);
         } else {
-          containerBottom = height(container);
+          containerBottom = height(container) + container.scrollTop();
           let containerTopOffset = 0;
           if (offsetTop(container) !== undefined) {
             containerTopOffset = offsetTop(container);
           }
-          elementBottom = (offsetTop(elem) - containerTopOffset) + height(elem);
+          elementBottom = (offsetTop(elem) - containerTopOffset) + elem[0].scrollHeight;
         }
 
         if (useDocumentBottom) {
